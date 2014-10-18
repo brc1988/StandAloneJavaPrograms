@@ -1,0 +1,60 @@
+
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.OperatingSystemMXBean;
+import java.lang.management.RuntimeMXBean;
+
+
+/**
+ * @author B R Choudhury
+ * Oct 13, 2014
+ */
+public class SystemDetails {
+
+    public static void main(String[] args) {
+        //System   
+        OperatingSystemMXBean os = ManagementFactory.getOperatingSystemMXBean();
+        System.out.println("System Architecture  : " + os.getArch());
+        System.out.println("Operating System     : " + os.getName());
+        System.out.println("Version              : " + os.getVersion());
+        System.out.println("Processors           : " + os.getAvailableProcessors());
+        System.out.println("System Load Average  : " + os.getSystemLoadAverage());
+
+        //RunTime 
+        RuntimeMXBean runTimeMxBean = ManagementFactory.getRuntimeMXBean();
+        System.out.println("Spec Name            : " + runTimeMxBean.getSpecName());
+        System.out.println("Spec Version         : " + runTimeMxBean.getSpecVersion());
+        System.out.println("Spec Vendor          : " + runTimeMxBean.getSpecVendor());
+        System.out.println("VM Name              : " + runTimeMxBean.getVmName());
+        System.out.println("VM Version           : " + runTimeMxBean.getVmVendor());
+        System.out.println("VM Vendor            : " + runTimeMxBean.getVmVendor());
+
+        //Memory
+        MemoryMXBean memoryMxbean = ManagementFactory.getMemoryMXBean();
+        System.out.println("Memory heap usage     : " + memoryMxbean.getHeapMemoryUsage());
+        System.out.println("Memory non heap usage : " + memoryMxbean.getNonHeapMemoryUsage());
+
+        //System Properties
+        System.out.println("file.seperator          : " + System.getProperty("file.separator"));
+        System.out.println("java.class.path         : " + System.getProperty("java.class.path"));
+        System.out.println("java.home               : " + System.getProperty("java.home"));
+        System.out.println("java.vendor             : " + System.getProperty("java.vendor"));
+        System.out.println("java.vendor.url         : " + System.getProperty("java.vendor.url"));
+        System.out.println("java.version            : " + System.getProperty("java.version"));
+        System.out.println("line.separator          : " + System.getProperty("line.separator"));
+        System.out.println("os.arch                 : " + System.getProperty("os.arch"));
+        System.out.println("os.name                 : " + System.getProperty("os.name"));
+        System.out.println("os.version              : " + System.getProperty("os.version"));
+        System.out.println("path.seperator          : " + System.getProperty("path.separator"));
+        System.out.println("user.dir                : " + System.getProperty("user.dir"));
+        System.out.println("user.home               : " + System.getProperty("user.home"));
+        System.out.println("user.name               : " + System.getProperty("user.name"));
+        
+        //RunTime
+        Runtime rt = Runtime.getRuntime();
+        System.out.println("Number of CPUs          : " + rt.availableProcessors());
+        System.out.println("Free Memory             : " + rt.freeMemory());
+        System.out.println("Total Memory            : " + rt.totalMemory());
+        System.out.println("Max avail Memory        : " + rt.maxMemory());
+    }
+}

@@ -1,0 +1,12 @@
+package com.practice.programs.thread;
+
+/**
+ *
+ * @author choudhuryb
+ */
+public class GetCurrentThread {    
+    public static void main(String [] args){    
+        Thread currenyThread = Thread.currentThread();
+        System.out.println(" Current thread : "+ currenyThread);         
+    }    
+}

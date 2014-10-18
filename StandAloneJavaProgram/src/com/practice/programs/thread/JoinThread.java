@@ -1,0 +1,41 @@
+package com.practice.programs.thread;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author choudhuryb
+ */
+public class JoinThread extends Thread {
+
+    @Override
+    public void run() {
+        System.out.println("Inside Run " + getName());
+        try {
+            System.out.println("About to sleep 3000ms inside run");
+            Thread.sleep(3000);
+        } catch (InterruptedException ex) {
+            System.err.println("Exception : " + ex.getMessage());
+        }
+        System.out.println("Thread terminated " + getName());
+    }
+
+    public static void main(String[] args) {
+        try {
+            Thread t1 = new JoinThread();
+            Thread t2 = new JoinThread();
+            Thread t3 = new JoinThread();
+            Thread t4 = new JoinThread();
+
+            t1.start();
+            t2.start();
+            t1.join();
+            t3.start();
+            t4.start();
+        } catch (InterruptedException ex) {
+             System.err.println("Exception : " + ex.getMessage());
+        }
+
+    }
+}
